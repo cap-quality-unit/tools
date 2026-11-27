@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>أداة توليد مواد اليوم الأول – مثال توضيحي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700&family=Tajawal:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#233A5E;--navy-deep:#1B2E4B;--gold:#C9A227;--gold-light:#E2CB8C;--teal-deep:#0E7C7B;--tint-teal:#E3F2F1;--clay:#A0522D;--ink:#2B2B2B;--text-secondary:#4A5568;--text-tertiary:#6B7280;--border:#D0D7E1;--zebra:#F3F3F3;--slide-ground:#F6F3EE;--note:#FFF6DD;--bad:#C0392B}
+*{box-sizing:border-box}
+body{margin:0;background:var(--slide-ground);color:var(--ink);font-family:Tajawal,Arial,sans-serif;font-size:16px;line-height:1.6}
+header{background:var(--navy);color:#fff;padding:22px 24px 18px;position:relative;overflow:hidden}
+header .tri{position:absolute;top:0;left:24px;display:flex;gap:4px}
+header .tri span{width:0;height:0;border-left:9px solid transparent;border-right:9px solid transparent;border-top:12px solid var(--gold)}
+header .eyebrow{font-family:Cairo;color:var(--gold);font-size:14px;margin:0}
+header h1{font-family:Cairo;font-size:26px;margin:2px 0 4px}
+header p{margin:0;color:#DDE6F0;font-size:15px}
+main{max-width:860px;margin:0 auto;padding:20px 16px 48px}
+.demo{background:var(--note);border:1px solid var(--gold);padding:10px 14px;margin-bottom:18px;font-size:15px}
+.card{background:#fff;border:1px solid #D9DEE5;border-radius:6.67px;box-shadow:0 2.42px 4.2px rgba(0,0,0,.18);padding:18px;margin-bottom:18px}
+.card h2{font-family:Cairo;color:var(--navy);font-size:19px;margin:0 0 12px;display:flex;align-items:center;gap:10px}
+.num{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--teal-deep);color:#fff;font-family:Cairo;font-size:16px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px}
+label{display:block;font-family:Cairo;font-size:14px;color:var(--navy);margin-bottom:4px}
+input,select{width:100%;padding:9px 10px;border:1px solid var(--border);border-radius:4px;font:inherit;background:#fff}
+input:focus,select:focus{outline:2px solid var(--teal-deep);outline-offset:0}
+table{width:100%;border-collapse:collapse}
+th{background:var(--navy);color:#fff;font-family:Cairo;font-weight:600;font-size:14px;padding:8px;text-align:right}
+td{padding:6px;border-bottom:1px solid var(--border)}
+tr:nth-child(even) td{background:var(--zebra)}
+td input{padding:7px 8px}
+.row-actions{display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:10px;flex-wrap:wrap}
+button{font-family:Cairo;font-size:15px;border:0;border-radius:999px;padding:9px 18px;cursor:pointer}
+.btn-add{background:var(--tint-teal);color:var(--teal-deep);border:1px solid #BFE0DD}
+.btn-del{background:transparent;color:var(--text-tertiary);padding:4px 8px;font-size:18px}
+.btn-main{background:var(--navy);color:#fff;font-size:18px;padding:12px 30px}
+.btn-main:hover{background:var(--navy-deep)}
+.total{font-family:Cairo;font-size:15px}
+.total.ok{color:var(--teal-deep)} .total.bad{color:var(--bad)}
+.msg{display:none;margin-top:14px;padding:12px 14px;border-radius:4px;font-size:15px}
+.msg.err{display:block;background:#FDECEA;border:1px solid var(--bad);color:#7B241C}
+.msg.ok{display:block;background:var(--tint-teal);border:1px solid #BFE0DD;color:#0B5F5E}
+.locked{font-size:14px;color:var(--text-secondary);margin:0 0 10px}
+footer{text-align:center;color:var(--text-tertiary);font-size:13px;padding:14px;background:var(--navy-deep);color:#AFC0D6}
+@media (max-width:640px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+ <div class="tri"><span></span><span></span><span></span></div>
+ <p class="eyebrow">وحدة التطوير والجودة · كلية العمارة والتخطيط</p>
+ <h1>أداة توليد مواد اليوم الأول (FDM)</h1>
+ <p>عبّئ الخانات ثم اضغط «توليد الملف» لتحصل على ملف Word الرسمي جاهزاً للرفع في النموذج.</p>
+</header>
+<main>
+ <div class="demo"><b>مثال توضيحي:</b> هذه الصفحة لشرح فكرة أداة التوليد فقط، وأقسامها ليست أقسام النموذج الرسمي. الأداة الفعلية تُبنى على القالب الرسمي المعتمد.</div>
+
+ <section class="card">
+  <h2><span class="num">1</span>بيانات المقرر</h2>
+  <div class="grid">
+   <div><label for="code">رمز المقرر</label><input id="code" placeholder="مثل: ARC1001" dir="ltr"></div>
+   <div><label for="title">اسم المقرر</label><input id="title" placeholder="مثل: التصميم المعماري (1)"></div>
+   <div><label for="sem">الفصل الدراسي</label><select id="sem"></select></div>
+   <div><label for="sec">الشعبة</label>
+    <select id="sec"><option value="M">طلاب (M)</option><option value="F">طالبات (F)</option><option value="MF">مشترك طلاب وطالبات (MF)</option></select></div>
+   <div style="grid-column:1/-1"><label for="instructor">عضو هيئة التدريس</label><input id="instructor" placeholder="الاسم كما يظهر رسمياً"></div>
+  </div>
+ </section>
+
+ <section class="card">
+  <h2><span class="num">2</span>الخطة الأسبوعية</h2>
+  <p class="locked">عناوين الجدول ثابتة لا تتغير، ويمكنك إضافة صفوف فقط.</p>
+  <table><thead><tr><th style="width:110px">الأسبوع</th><th>الموضوع</th><th style="width:40px"></th></tr></thead><tbody id="weeks"></tbody></table>
+  <div class="row-actions"><button class="btn-add" type="button" id="addWeek">+ إضافة أسبوع</button></div>
+ </section>
+
+ <section class="card">
+  <h2><span class="num">3</span>توزيع درجات التقييم</h2>
+  <p class="locked">لن يُولَّد الملف إلا إذا كان مجموع الأوزان 100%.</p>
+  <table><thead><tr><th>أداة التقييم</th><th style="width:130px">الوزن %</th><th style="width:40px"></th></tr></thead><tbody id="assess"></tbody></table>
+  <div class="row-actions"><button class="btn-add" type="button" id="addAssess">+ إضافة أداة تقييم</button><span class="total" id="total"></span></div>
+ </section>
+
+ <div style="text-align:center"><button class="btn-main" type="button" id="gen">توليد الملف</button></div>
+ <div class="msg" id="msg" role="status"></div>
+</main>
+<footer>وحدة التطوير والجودة · كلية العمارة والتخطيط · جامعة القصيم</footer>
+<script>
+// ===== Minimal DOCX builder (no libraries, works offline) =====
+const CRC_TABLE = (() => { const t = new Uint32Array(256); for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+function crc32(b) { let c = 0xFFFFFFFF; for (let i = 0; i < b.length; i++) c = CRC_TABLE[(c ^ b[i]) & 0xFF] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }
+function zipStore(files) {
+  const enc = new TextEncoder(); const parts = []; const central = []; let offset = 0;
+  for (const f of files) {
+    const name = enc.encode(f.name); const data = enc.encode(f.data); const crc = crc32(data);
+    const lh = new DataView(new ArrayBuffer(30));
+    lh.setUint32(0, 0x04034b50, true); lh.setUint16(4, 20, true); lh.setUint16(6, 0x0800, true); lh.setUint16(8, 0, true);
+    lh.setUint16(10, 0, true); lh.setUint16(12, 0x21, true); lh.setUint32(14, crc, true); lh.setUint32(18, data.length, true);
+    lh.setUint32(22, data.length, true); lh.setUint16(26, name.length, true); lh.setUint16(28, 0, true);
+    parts.push(new Uint8Array(lh.buffer), name, data);
+    const ch = new DataView(new ArrayBuffer(46));
+    ch.setUint32(0, 0x02014b50, true); ch.setUint16(4, 20, true); ch.setUint16(6, 20, true); ch.setUint16(8, 0x0800, true);
+    ch.setUint16(10, 0, true); ch.setUint16(12, 0, true); ch.setUint16(14, 0x21, true); ch.setUint32(16, crc, true);
+    ch.setUint32(20, data.length, true); ch.setUint32(24, data.length, true); ch.setUint16(28, name.length, true);
+    ch.setUint16(30, 0, true); ch.setUint16(32, 0, true); ch.setUint16(34, 0, true); ch.setUint16(36, 0, true);
+    ch.setUint32(38, 0, true); ch.setUint32(42, offset, true);
+    central.push(new Uint8Array(ch.buffer), name);
+    offset += 30 + name.length + data.length;
+  }
+  const cdSize = central.reduce((s, a) => s + a.length, 0);
+  const end = new DataView(new ArrayBuffer(22));
+  end.setUint32(0, 0x06054b50, true); end.setUint16(8, files.length, true); end.setUint16(10, files.length, true);
+  end.setUint32(12, cdSize, true); end.setUint32(16, offset, true);
+  const all = [...parts, ...central, new Uint8Array(end.buffer)];
+  const out = new Uint8Array(all.reduce((s, a) => s + a.length, 0)); let p = 0; for (const a of all) { out.set(a, p); p += a.length; }
+  return out;
+}
+const esc = s => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const NAVY = "233A5E", TEAL = "0E7C7B", INK = "2B2B2B";
+function run(text, o = {}) {
+  return `<w:r><w:rPr><w:rFonts w:ascii="Cairo" w:hAnsi="Cairo" w:cs="Cairo"/>${o.bold ? "<w:b/><w:bCs/>" : ""}<w:color w:val="${o.color || INK}"/><w:sz w:val="${o.size || 22}"/><w:szCs w:val="${o.size || 22}"/><w:rtl/></w:rPr><w:t xml:space="preserve">${esc(text)}</w:t></w:r>`;
+}
+function para(text, o = {}) {
+  return `<w:p><w:pPr><w:bidi/><w:jc w:val="${o.align || "right"}"/><w:spacing w:before="${o.before || 0}" w:after="${o.after ?? 120}"/></w:pPr>${run(text, o)}</w:p>`;
+}
+function cell(text, o = {}) {
+  return `<w:tc><w:tcPr><w:tcW w:w="${o.w}" w:type="dxa"/>${o.fill ? `<w:shd w:val="clear" w:color="auto" w:fill="${o.fill}"/>` : ""}</w:tcPr>${para(text, { bold: o.bold, color: o.color, size: 20, after: 0, align: o.align })}</w:tc>`;
+}
+function table(head, rows, widths) {
+  const b = `<w:tblBorders>${["top","bottom","insideH","insideV","left","right"].map(s => `<w:${s} w:val="single" w:sz="4" w:color="D0D7E1"/>`).join("")}</w:tblBorders>`;
+  let x = `<w:tbl><w:tblPr><w:bidiVisual/><w:tblW w:w="${widths.reduce((a, c) => a + c, 0)}" w:type="dxa"/>${b}</w:tblPr><w:tblGrid>${widths.map(w => `<w:gridCol w:w="${w}"/>`).join("")}</w:tblGrid>`;
+  x += `<w:tr><w:trPr><w:tblHeader/></w:trPr>${head.map((h, i) => cell(h, { w: widths[i], fill: NAVY, color: "FFFFFF", bold: true })).join("")}</w:tr>`;
+  rows.forEach((r, ri) => { x += `<w:tr>${r.map((c, i) => cell(c, { w: widths[i], fill: ri % 2 ? "F3F3F3" : null })).join("")}</w:tr>`; });
+  return x + `</w:tbl>`;
+}
+const STAMP = "DQU-GEN-v1";
+function buildDocx(d) {
+  let body = "";
+  body += para("جامعة القصيم · كلية العمارة والتخطيط · قسم العمارة", { size: 20, color: "4A5568", align: "center" });
+  body += para("مواد اليوم الأول للمقرر (مثال توضيحي)", { bold: true, size: 34, color: NAVY, align: "center", after: 60 });
+  body += para("First Day Materials (FDM) – Demo", { size: 22, color: TEAL, align: "center", after: 240 });
+  body += para("1. بيانات المقرر", { bold: true, size: 26, color: NAVY, before: 120 });
+  body += table(["البيان", "القيمة"], [
+    ["رمز المقرر", d.code], ["اسم المقرر", d.title], ["الفصل الدراسي", d.sem],
+    ["الشعبة", d.secLabel], ["عضو هيئة التدريس", d.instructor]], [3000, 6000]);
+  body += para("2. الخطة الأسبوعية", { bold: true, size: 26, color: NAVY, before: 240 });
+  body += table(["الأسبوع", "الموضوع"], d.weeks.map(w => [w.week, w.topic]), [1800, 7200]);
+  body += para("3. توزيع درجات التقييم", { bold: true, size: 26, color: NAVY, before: 240 });
+  body += table(["أداة التقييم", "الوزن %"], d.assess.map(a => [a.name, String(a.weight)]).concat([["المجموع", "100"]]), [6000, 3000]);
+  const sect = `<w:sectPr><w:footerReference w:type="default" r:id="rId1"/><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134" w:header="567" w:footer="567" w:gutter="0"/><w:bidi/></w:sectPr>`;
+  const NS = `xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"`;
+  const doc = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document ${NS}><w:body>${body}${sect}</w:body></w:document>`;
+  const footer = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:ftr ${NS}>${para("وُلِّد هذا الملف بالأداة الرسمية لوحدة التطوير والجودة · " + STAMP + " · " + d.generatedAt, { size: 16, color: "6B7280", align: "center", after: 0 })}</w:ftr>`;
+  const files = [
+    { name: "[Content_Types].xml", data: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/footer1.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml"/></Types>` },
+    { name: "_rels/.rels", data: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>` },
+    { name: "word/_rels/document.xml.rels", data: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/footer" Target="footer1.xml"/></Relationships>` },
+    { name: "word/document.xml", data: doc },
+    { name: "word/footer1.xml", data: footer }
+  ];
+  return zipStore(files);
+}
+// ===== Page logic =====
+(function(){
+  // Semester rule: Dec–Jun -> ...1 ; Jul–Nov -> ...2 ; Hijri = Gregorian - 579 (Jan–Nov) or - 578 (Dec)
+  const now=new Date(), m=now.getMonth()+1, y=now.getFullYear();
+  const hy=(m===12?y-578:y-579)%100, term=(m>=7&&m<=11)?2:1;
+  const cur=String(hy)+term, sem=document.getElementById('sem');
+  const opts=[String(hy)+"1",String(hy)+"2",String(hy+1)+"1"];
+  opts.forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;if(v===cur)o.selected=true;sem.appendChild(o);});
+
+  const weeks=document.getElementById('weeks'), assess=document.getElementById('assess');
+  function delBtn(tr,after){const b=document.createElement('button');b.type='button';b.className='btn-del';b.title='حذف الصف';b.textContent='×';b.onclick=()=>{tr.remove();after&&after();};return b;}
+  function addWeek(n,t){const tr=document.createElement('tr');tr.innerHTML='<td><input class="w-n" value="'+(n||'')+'"></td><td><input class="w-t" value="'+(t||'')+'"></td><td></td>';tr.lastChild.appendChild(delBtn(tr));weeks.appendChild(tr);}
+  function addAssess(a,w){const tr=document.createElement('tr');tr.innerHTML='<td><input class="a-n" value="'+(a||'')+'"></td><td><input class="a-w" type="number" min="0" max="100" value="'+(w??'')+'"></td><td></td>';tr.lastChild.appendChild(delBtn(tr,sum));tr.querySelector('.a-w').addEventListener('input',sum);assess.appendChild(tr);sum();}
+  function sum(){let s=0;assess.querySelectorAll('.a-w').forEach(i=>s+=Number(i.value)||0);const t=document.getElementById('total');t.textContent='المجموع: '+s+'%';t.className='total '+(s===100?'ok':'bad');return s;}
+  for(let i=1;i<=3;i++)addWeek(i,'');
+  addAssess('أعمال الفصل','');addAssess('الاختبار النهائي','');
+  document.getElementById('addWeek').onclick=()=>addWeek(weeks.children.length+1,'');
+  document.getElementById('addAssess').onclick=()=>addAssess('','');
+
+  document.getElementById('gen').onclick=function(){
+    const msg=document.getElementById('msg'), v=id=>document.getElementById(id).value.trim();
+    const errs=[]; const code=v('code').toUpperCase().replace(/\s+/g,'');
+    if(!/^[A-Z]{2,5}\d{3,4}$/.test(code))errs.push('رمز المقرر غير صحيح (مثال صحيح: ARC1001).');
+    if(!v('title'))errs.push('اكتب اسم المقرر.');
+    if(!v('instructor'))errs.push('اكتب اسم عضو هيئة التدريس.');
+    const ws=[...weeks.querySelectorAll('tr')].map(tr=>({week:tr.querySelector('.w-n').value.trim(),topic:tr.querySelector('.w-t').value.trim()})).filter(w=>w.topic);
+    if(!ws.length)errs.push('أدخل موضوعاً واحداً على الأقل في الخطة الأسبوعية.');
+    const as=[...assess.querySelectorAll('tr')].map(tr=>({name:tr.querySelector('.a-n').value.trim(),weight:Number(tr.querySelector('.a-w').value)||0})).filter(a=>a.name);
+    if(sum()!==100)errs.push('مجموع أوزان التقييم يجب أن يساوي 100%.');
+    if(errs.length){msg.className='msg err';msg.innerHTML='<b>لم يُولَّد الملف:</b><br>'+errs.join('<br>');return;}
+    const sec=v('sec'), secLabel=document.getElementById('sec').selectedOptions[0].textContent;
+    const today=new Date().toISOString().slice(0,10);
+    const bytes=buildDocx({code,title:v('title'),sem:v('sem'),secLabel,instructor:v('instructor'),weeks:ws,assess:as,generatedAt:today});
+    const name=code+'_'+v('sem')+'_'+sec+'_FDM_'+STAMP+'.docx';
+    const blob=new Blob([bytes],{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+    const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();
+    setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1500);
+    msg.className='msg ok';msg.innerHTML='<b>تم توليد الملف:</b> '+name+'<br>الخطوة التالية: ارجع إلى نموذج التسليم وارفع هذا الملف في خانة «مواد اليوم الأول».';
+  };
+})();
+</script>
+</body>
+</html>
